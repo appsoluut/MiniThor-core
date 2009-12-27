@@ -1,0 +1,7 @@
+== Installation
+
+Place the files somewhere on your webserver and make sure that only the /public folder is world readable. You can either copy the contents of the .htaccess file to your webserver configuration or enable the webserver to use this file.
+
+In the /application/config folder is a configuration file for the database connection.
+
+Make sure PHP can find the 1.9 version of Zend Framework in it's include path or add it to the library folder next to the Thor folder and the application will find it by itself.
