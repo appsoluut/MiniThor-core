@@ -11,7 +11,7 @@ $pheanstalkClassRoot = '../contrib/Pheanstalk';
 require_once $pheanstalkClassRoot . '/Pheanstalk/ClassLoader.php';
 Pheanstalk_ClassLoader::register($pheanstalkClassRoot);
 
-$pheanstalk = new Pheanstalk('192.168.2.1');
+$pheanstalk = new Pheanstalk('nurgle.nl');
 
 $continue = true;
 $restart = false;

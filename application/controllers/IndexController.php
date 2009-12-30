@@ -9,6 +9,7 @@ class IndexController extends Zend_Rest_Controller { //Zend_Controller_Action {
 	}
 	
 	public function indexAction() {
+		
 	}
 	
 	public function getAction() {
