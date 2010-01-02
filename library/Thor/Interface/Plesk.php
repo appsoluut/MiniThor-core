@@ -4,7 +4,7 @@ class Thor_Interface_Plesk extends Thor_Interface {
 	
 	protected $_curl;
 	
-	public function checkPrequirements() {
+	public function checkRequirements() {
 		if( !function_exists('curl_init') ) {
 			throw new Exception('cURL PHP extension not installed');
 		}

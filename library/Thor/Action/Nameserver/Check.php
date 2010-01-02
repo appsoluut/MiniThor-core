@@ -1,5 +1,5 @@
 <?php
-class Thor_Action_Nameserver_Create extends Thor_Action_Abstract {
+class Thor_Action_Nameserver_Check extends Thor_Action_Abstract {
 	protected $_nsInterface;
 	
 	/**

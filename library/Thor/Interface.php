@@ -1,8 +1,17 @@
 <?php
 abstract class Thor_Interface {
+	/**
+	 * Log object
+	 * @var Thor_Log
+	 */
 	public $log;
-	
-	public function __construct($log=null) {
+
+	/**
+	 * 
+	 * @param Thor_Log $log
+	 * @return unknown_type
+	 */
+	public function __construct(Thor_Log $log=null) {
 		if($log instanceOf Thor_Log) {
 			$this->log = $log;
 		} else {
@@ -15,7 +24,7 @@ abstract class Thor_Interface {
 	public function init() {
 	}
 	
-	public function checkPrequirements() {
-		return TRUE;
+	public function checkRequirements() {
+		return true;
 	} 
 }
