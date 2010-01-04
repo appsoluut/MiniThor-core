@@ -27,6 +27,17 @@ class Thor_Action_Nameserver_Create extends Thor_Action_Abstract {
 	}
 	
 	public function process() {
+		try {
+			$domain = 'blabla.nl';
+			$this->log->put(sprintf('Creating zone file for %s', $domain), Thor_Log::THOR_LOG_TYPE_DEBUG);
+			$this->_nsInterface->create($domain);
+			return $this->success();
+		} catch (Exception $e) {
+			$this->log->put(sprintf($e->getMessage()), Thor_Log::THOR_LOG_TYPE_ERROR);
+			return $this->error();
+		}
+		
+		/*
 		echo 'Processing ' . __CLASS__;
 		
 		try {
@@ -38,5 +49,6 @@ class Thor_Action_Nameserver_Create extends Thor_Action_Abstract {
 			$this->log->put(sprintf($e->getMessage()), Thor_Log::THOR_LOG_TYPE_ERROR);
 			return $this->error();
 		}
+		*/
 	}
 }

@@ -8,18 +8,35 @@ class ActionProcessController extends Zend_Rest_Controller { //Zend_Controller_A
 	}
 	
 	public function indexAction() {
+		// Does nothing - nothing to list
+		$this->getResponse()->setHttpResponseCode(400);
+		$data = array(
+			'code'		=> 400,
+			'message'	=> 'No list action for this request',
+		);
+		
+		$this->_helper->json($data);
 	}
 	
 	public function getAction() {
+		// Process action
 		try {
 			$actionId = $this->_getParam('id');
-			$data = $this->_action->process($actionId);
+			$success = $this->_action->process($actionId);
 			
-			$this->getResponse()->setHttpResponseCode(200);
-			$data = array(
-				'code'		=> 200,
-				'message'	=> 'Action processed',
-			);
+			if($success) {
+				$this->getResponse()->setHttpResponseCode(200);
+				$data = array(
+					'code'		=> 200,
+					'message'	=> 'Action processed',
+				);
+			} else {
+				$this->getResponse()->setHttpResponseCode(500);
+				$data = array(
+					'code'		=> 500,
+					'message'	=> 'Action returned an error',
+				);
+			}
 		} catch(Exception $e) {
 			$this->getResponse()->setHttpResponseCode(400);
 			$data = array(

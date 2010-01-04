@@ -21,4 +21,9 @@ class Thor_Interface_Nameserver extends Thor_Interface {
 			throw new Exception(sprintf('Couldn\'t find and %s records for host %s', strtoupper($recordType), $host));
 		}
 	}
+	
+	public function create($domain) {
+		$pdns = new Thor_Interface_PowerDNS;
+		$pdns->createZone($domain);
+	}
 }

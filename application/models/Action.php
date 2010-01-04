@@ -15,7 +15,7 @@ class Default_Model_Action extends Zend_Db_Table_Abstract {
 		$success = $action->process();
 		$action->postProcess();
 				
-		echo '<pre>' . print_r($action->getLog(), 1) . '</pre>';
+		//echo '<pre>' . print_r($action->getLog(), 1) . '</pre>';
 
 		return $success;
 		
